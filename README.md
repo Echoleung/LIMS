@@ -1,1 +1,2 @@
 # LIMS
+All right reserved.
