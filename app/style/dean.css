@@ -8,7 +8,7 @@ html{
 }
 
 body{
-	display: flex;;
+	display: flex;
 	flex-direction: column;
 	min-height: 100%;
 	color: #63A479;
@@ -16,17 +16,15 @@ body{
 /*header part*/
 header{
 	width: 100%;
-	height: 20%;
 	margin-left: 20px; 
 	font-size: 2rem;
 	font-family: 'Oswald', sans-serif;
-	
 }
 /*body part: display*/
 .display{
 	width: 100%;
-	height: 10%;
-
+	min-height: 150px;
+	height: 15%;
 }
 .display h2{
 	color: #63A479;
@@ -50,7 +48,6 @@ input :hover{
 /*body part: funtion items*/
 .function{
 	width: 100%;
-	height: 50%;
 	flex: 1;
 	display: flex;
 	flex-direction: row;
@@ -69,11 +66,11 @@ input :hover{
 	font-size: 1.5rem;
 	font-family: 'Merriweather', serif;
 }
-img{
+.function img{
 	display: flex;
 	max-width: 100%;
 	max-height: 100%;
-	width: 50%;
+	width: 40%;
 	height: 100%;
 	margin: auto;
 }
@@ -81,11 +78,55 @@ img{
 	margin: auto;
 	font-size: 1.3rem;
 }
+.smallscreen{
+	display: none;
+}
 
 /*footer part*/
 footer{
 	width: 100%;
 	height: 10%;
+	margin-top: 25px;
 	text-align: center;
 	text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
+	h1{
+		text-align: center;
+		font-size: 5rem;
+	}
+	.display h2{
+		font-size: 3rem;
+	}
+	input{
+		height:3rem;
+		width: 50%;
+	}
+	.function{
+		flex-direction: column;
+	}
+	.function div{
+		flex-direction: row;
+	}
+	.funtion_img{
+		
+	}
+	.function img{
+		width: 55%;
+		margin-left: 0;
+	}
+	.function_img p{
+		display: none;
+	}
+	.txt{
+		margin: 0;
+	}
+	.txt p{
+		display: none;
+	}
+	.smallscreen{
+		display: inline;
+		font-size: 2.5rem;
+	}
 }
