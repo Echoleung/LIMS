@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <context-param>
+        <param-name>dbname</param-name>
+        <param-value>lims_db</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>user_sign_in</servlet-name>
+        <servlet-class>edu.cit.lims.Controller.UserSignIn</servlet-class>
+        <!--servletconfig
+        <init-param>
+            <param-name>dbname</param-name>
+            <param-value>lims_db</param-value>
+        </init-param>-->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user_sign_in</servlet-name>
+        <url-pattern>/Signin</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>user_sign_up</servlet-name>
+        <servlet-class>edu.cit.lims.Controller.UserSignUp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user_sign_up</servlet-name>
+        <url-pattern>/Signup</url-pattern>
+    </servlet-mapping>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <url-pattern>*.jspf</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+            <scripting-invalid>true</scripting-invalid>
+            <include-prelude>/WEB-INF/jsp/base.jspf</include-prelude>
+            <trim-directive-whitespaces>true</trim-directive-whitespaces>
+            <default-content-type>text</default-content-type>
+        </jsp-property-group>
+    </jsp-config>
+
+    <!--<session-config>-->
+        <!--<session-timeout>15</session-timeout>-->
+        <!--<cookie-config>-->
+            <!--<name>JSESSIONID</name>-->
+            <!--<domain>edu.cit</domain>-->
+            <!--<path>/SignUp</path>-->
+            <!--<comment><![<![CDATA[-->
+                <!--KEEP YOU LOGGED IN            -->
+            <!--]]></comment>-->
+            <!--<http-only>true</http-only>-->
+            <!--<secure>false</secure>-->
+            <!--<max-age>900</max-age>-->
+        <!--</cookie-config>-->
+        <!--<tracking-mode>COOKIE</tracking-mode>-->
+        <!--<tracking-mode>URL</tracking-mode>-->
+        <!--<tracking-mode>SSL</tracking-mode>-->
+    <!--</session-config>-->
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+    <listener>
+        <listener-class>
+            edu.cit.lims.Listener.JDBCListener
+        </listener-class>
+    </listener>
+
+</web-app>
